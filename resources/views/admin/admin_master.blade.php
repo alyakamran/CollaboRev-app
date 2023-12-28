@@ -4,9 +4,8 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Dashboard | Upcube - Admin & Dashboard Template</title>
+        <title>Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
 
         <!-- App favicon -->
@@ -28,8 +27,11 @@
         <!-- App Css-->
         <link href="{{ asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
 
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-
+        <!-- Plugin css -->
+        <link rel="stylesheet" href="{{ asset('backend/assets/libs/@fullcalendar/core/main.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('backend/assets/libs/@fullcalendar/daygrid/main.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('backend/assets/libs/@fullcalendar/bootstrap/main.min.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('backend/assets/libs/@fullcalendar/timegrid/main.min.css')}}" type="text/css">
     </head>
 
     <body data-topbar="dark">
@@ -56,7 +58,7 @@
                @yield('admin')
                 <!-- End Page-content -->
                
-                @include('admin.body.footer')
+                <!-- @include('admin.body.footer') -->
                 
             </div>
             <!-- end main content-->
@@ -99,30 +101,23 @@
         <!-- App js -->
         <script src="{{ asset('backend/assets/js/app.js')}}"></script>
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+                <!-- plugin js -->
+                <script src="{{ asset('backend/assets/libs/moment/min/moment.min.js')}}"></script>
+        <script src="{{ asset('backend/assets/libs/jquery-ui-dist/jquery-ui.min.js')}}"></script>
+        <script src="{{ asset('backend/assets/libs/@fullcalendar/core/main.min.js')}}"></script>
+        <script src="{{ asset('backend/assets/libs/@fullcalendar/bootstrap/main.min.js')}}"></script>
+        <script src="{{ asset('backend/assets/libs/@fullcalendar/daygrid/main.min.js')}}"></script>
+        <script src="{{ asset('backend/assets/libs/@fullcalendar/timegrid/main.min.js')}}"></script>
+        <script src="{{ asset('backend/assets/libs/@fullcalendar/interaction/main.min.js')}}"></script>
 
-<script>
- @if(Session::has('message'))
- var type = "{{ Session::get('alert-type','info') }}"
- switch(type){
-    case 'info':
-    toastr.info(" {{ Session::get('message') }} ");
-    break;
+        <!-- Calendar init -->
+        <script src="{{ asset('backend/assets/js/pages/calendar.init.js')}}"></script>
 
-    case 'success':
-    toastr.success(" {{ Session::get('message') }} ");
-    break;
+        <script src="{{ asset('backend/assets/js/app.js')}}"></script>
 
-    case 'warning':
-    toastr.warning(" {{ Session::get('message') }} ");
-    break;
+        <script src="{{ asset('backend/assets/libs/jquery-knob/jquery.knob.min.js')}}"></script> 
 
-    case 'error':
-    toastr.error(" {{ Session::get('message') }} ");
-    break; 
- }
- @endif 
-</script>
+        <script src="{{ asset('backend/assets/js/pages/jquery-knob.init.js')}}"></script> 
     </body>
 
 </html>
