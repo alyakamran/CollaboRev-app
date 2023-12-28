@@ -169,7 +169,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
-        Laravel\Fortify\FortifyServiceProvider::class,
 
     ])->toArray(),
 
