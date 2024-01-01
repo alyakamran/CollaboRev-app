@@ -1,4 +1,4 @@
-@extends('admin.admin_master')
+@extends('admin.reviewer_master')
 @section('admin')
 
 <div class="page-content">
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Author | Profile</h4>
+                    <h4 class="mb-sm-0">Reviewer | Profile</h4>
                     
                     <div class="page-title-right">
                         

@@ -41,7 +41,7 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>Author</th>
-                                        <th>Reviewer Leader</th>
+                                        <th>Review Leader</th>
                                         <th>Document Name</th>
                                         <th>No. of Requirements</th>
                                         <th>Status</th>

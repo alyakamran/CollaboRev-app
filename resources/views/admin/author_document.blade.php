@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Author | Document</h4>                  
+                    <h4 class="mb-sm-0">Author | Documents</h4>                  
                     <div class="page-title-right">                        
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="/author/dashboard">Collaborev</a></li>
@@ -44,7 +44,7 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th><h6 class="mb-0">Name</h6></th>
-                                        <th><h6 class="mb-0">Number of Requirements</h6></th>
+                                        <th><h6 class="mb-0">No. of Requirements</h6></th>
                                         <th><h6 class="mb-0">Assigned Review Leader</h6></th>
                                         <th></th>
                                     </tr>
@@ -348,9 +348,10 @@ addRequirementButton.addEventListener (
                                 <input type="file" name="req" class="form-control">
                             </div>
                         </div>
+                        
                         <div class="col-l">
                             <div class="input-group mb-3">
-                                <select id="review_leader" class="form-control mt-1 w-full" type="text" name="review_leader">
+                                <select id="review_leader" class="form-control mt-1 w-full" type="text" name="review_leader" required>
                                     <option>Choose Review Leader</option>
                                         @foreach ($reviewLeaders as $leader)
                                         <option value="{{ $leader->name }}">{{ $leader->name }}</option>

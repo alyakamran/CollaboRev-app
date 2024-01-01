@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Reports</h4>
+                    <h4 class="mb-sm-0">Author | Reports</h4>
                     
                     <div class="page-title-right">
                         
@@ -43,8 +43,8 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th>Name</th>
-                                        <th>Number of Requirements</th>
-                                        <th>Assigned Review Leader</th>
+                                        <th>No. of Requirements</th>
+                                        <th>Review Leader</th>
                                         <th>Status</th>
                                         <th></th>
                                     </tr>

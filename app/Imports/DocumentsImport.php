@@ -42,14 +42,18 @@ class DocumentsImport implements ToModel, WithStartRow, WithCustomCsvSettings
     */
     public function model(array $row)
     {   
+        $selectedReviewLeaderName = $this->request->review_leader;
+        $reviewLeaderId = User::where('name', $selectedReviewLeaderName)->first()->id;
+     
         $user = Auth::user(); 
 
         if (!$this->document) {
             // Create a new document and save it to the database
             $this->document = new Document([
                 'docname' => $this->request->docname,
-                'review_leader' => $this->request->review_leader,
+                'review_leader_id' => $reviewLeaderId,
                 'user_id' => $user->id,
+                'status' => 'Unvalidated',
             ]);
 
             $this->document->save();

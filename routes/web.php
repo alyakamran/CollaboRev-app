@@ -42,11 +42,9 @@ Route::controller(AdminController::class)->group(function () {
 Route::get('/author/dashboard', function () {
     return view('admin.author_dashboard');
 })->middleware(['auth', 'verified'])->name('author/dashboard');
-
 Route::get('/author/document', function () {
     return view('admin.author_document');
 })->middleware(['auth', 'verified'])->name('document');
-
 Route::get('/author/report', function () {
     return view('admin.author_report');
 })->middleware(['auth', 'verified'])->name('report');
@@ -57,11 +55,9 @@ Route::get('/report/{document}', [AuthorController::class, 'showReportPage'])->n
 Route::get('/reviewleader/dashboard', function () {
     return view('admin.leader_dashboard');
 })->middleware(['auth', 'verified'])->name('reviewleader/dashboard');
-
 Route::get('/reviewleader/document', function () {
     return view('admin.leader_document');
 })->middleware(['auth', 'verified'])->name('reviewleader/document');
-
 Route::get('/reviewleader/report', function () {
     return view('admin.leader_report');
 })->middleware(['auth', 'verified'])->name('reviewleader/report');
@@ -73,22 +69,19 @@ Route::get('/api/documents/{document}', function (Document $document) {
     ]);
   });
 
-  Route::get('/validate/{document}', [ReviewLeaderController::class, 'showValidatePage'])->name('validate');
+Route::get('/validate/{document}', [ReviewLeaderController::class, 'showValidatePage'])->name('validate');
   
 
 // Reviewer's Route
 Route::get('/reviewer/dashboard', function () {
     return view('admin.reviewer_dashboard');
 })->middleware(['auth', 'verified'])->name('reviewer/dashboard');
-
 Route::get('/reviewer/document', function () {
     return view('admin.reviewer_document');
 })->middleware(['auth', 'verified'])->name('reviewer/document');
-
 Route::get('/reviewer/report', function () {
     return view('admin.reviewer_report');
 })->middleware(['auth', 'verified'])->name('reviewer/report');
-
 Route::get('/review', function () {
     return view('admin.review');
 })->middleware(['auth', 'verified'])->name('review');
@@ -112,7 +105,7 @@ Route::post('/author/import', function (Request $request) {
     return redirect()->back();
 });
 
-Route::post('/author/storeReviewers/{document}', [ReviewerController::class, 'storeReviewer']);
+Route::post('/reviewleader/storeReviewer/{document}', [ReviewerController::class, 'StoreReviewer']);
 
 Route::get('/export-pdf/{document}', [PdfController::class, 'exportPdfWithTable']);
 

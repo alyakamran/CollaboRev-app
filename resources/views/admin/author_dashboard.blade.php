@@ -111,7 +111,7 @@ $adminData = App\Models\User::find($id);
             <div class="col-xl-3 col-md-6"">
                 <div class="text-center" dir="ltr">
                     <h5 class="font-size-14 mb-3">Today's Energy</h5>
-                    <input class="knob" data-width="150" data-angleoffset="90" data-linecap="round" data-fgcolor="#FBC02D" value="35">
+                    <input class="knob" data-width="150" data-angleoffset="90" data-linecap="round" data-fgcolor="#FBC02D" value="85">
                 </div>
             </div>
             

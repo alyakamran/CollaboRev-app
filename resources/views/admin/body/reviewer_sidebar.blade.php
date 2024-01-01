@@ -1,6 +1,24 @@
 <div class="vertical-menu">
 
-                <div data-simplebar class="h-100">
+@php
+
+$id = Auth::user()->id;
+$adminData = App\Models\User::find($id);
+
+@endphp
+
+    <div data-simplebar class="h-100">
+    <div class="user-profile text-center mt-3">
+            <div class="">
+                <img src="{{ (!empty($adminData->profile_picture))? url('upload/admin_images/'.$adminData->profile_picture): url('upload/user.png') }}" alt="" class="avatar-md rounded-circle">
+            </div>
+            <div class="mt-3">
+                <h4 class="font-size-16 mb-1">{{$adminData->name}}</h4>
+                <span class="text-muted"><i class="ri-checkbox-blank-circle-fill align-middle font-size-10 text-success"></i> Online</span>
+            </div>
+        </div>
+
+
 
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">

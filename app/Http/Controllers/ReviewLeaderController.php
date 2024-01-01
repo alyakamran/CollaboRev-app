@@ -45,9 +45,12 @@ class ReviewLeaderController extends Controller
 
     public function validateFeedback(Request $request,  Document $document)
     {
+        $document_id =  $document->id;
+        $data = Document::find($document_id);
+    
         $document_id = $request->input('document_id');
-        $document->update(['status' => 'Reviewed']);
-        $document->status = 'Reviewed';
+
+        $document->status = 'Validated';
         $document->save();
 
         return redirect('/reviewleader/report');

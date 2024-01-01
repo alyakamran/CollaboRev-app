@@ -15,10 +15,10 @@ class ExcelController extends Controller
     {
         $document_id = $document->id;
     // Retrieve the document requirements
-    $feedbacks = Feedback::where('document_id', $document->id)->get();
+        $feedbacks = Feedback::where('document_id', $document->id)->get();
     // Retrieve data needed for the PDF, such as document name
-    $documentName = $document->docname;
-    $groupedFeedbacks = $feedbacks->groupBy('question');
+        $documentName = $document->docname;
+        $groupedFeedbacks = $feedbacks->groupBy('question');
 
 
         

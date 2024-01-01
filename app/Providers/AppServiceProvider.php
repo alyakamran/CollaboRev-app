@@ -30,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        Reviewer::observe(ReviewerObserver::class);
-        Document::observe(DocumentObserver::class);
+    
     }
 }

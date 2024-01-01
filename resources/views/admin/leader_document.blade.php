@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Review Leader Documents</h4>                  
+                    <h4 class="mb-sm-0">Review Leader | Documents</h4>                  
                     <div class="page-title-right">                        
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="/reviewleader/dashboard">Collaborev</a></li>
@@ -35,7 +35,7 @@
                         ->whereNotNull('reviewer1_id')
                         ->whereNotNull('reviewer2_id')
                         ->whereNotNull('reviewer3_id')
-                        ->get();
+                        ->count();
 
                         @endphp   
 
@@ -46,21 +46,30 @@
                                     <tr>
                                         <th>Author</th>
                                         <th>Name</th>
-                                        <th>Number of Requirements</th>
+                                        <th>No. of Requirements</th>
                                         <th></th>
                                     </tr>
                                 </thead><!-- end thead -->
                                 <tbody>
                                     @foreach ($documents as $document)
+
+                                    @php
+                                    $documentAssigned = App\Models\Document::where('review_leader_id', $reviewLeader)
+                                    ->whereNotNull('reviewer1_id')
+                                    ->whereNotNull('reviewer2_id')
+                                    ->whereNotNull('reviewer3_id')
+                                    ->count();
+
+                                    @endphp
                             
                                     <tr>
                                         <td><h6 class="mb-0">{{ $document->user->name }}</h6></td>
                                         <td><h6 class="mb-0">{{ $document->docname }}</h6></td>
                                         <td><h6 class="mb-0">{{ $document->requirements->count() }} </h6></td>
                                         <td>
-                                        @if ($documentAssigned)
+                                        @if ($document->reviewer1_id != NULL)
                                             <button type="button" class="btn btn-secondary" disabled>
-                                            <i class="ri-team-line align-middle "></i> Assigned</button>
+                                            <i class="ri-team-line align-middle "></i> Assigned </button>
 
                                             @else
                                             <button type="button" class="btn btn-primary" 
@@ -69,13 +78,13 @@
                                                 data-document-name="{{ $document->docname }}"
                                                 ><i class="ri-team-line align-middle "></i> Assign Reviewers</button>
                                                 
-                                            @endif
+                                        @endif
                                         
                                         </td>
                                                                                                                    
                                     </tr> 
 
-                                    <form action="/author/storeReviewers/{{ $document->id }}" method="POST" enctype="multipart/form-data">                        
+                                    <form action="/reviewleader/storeReviewer/{{ $document->id }}" method="POST" enctype="multipart/form-data">                        
                                     <div class="modal fade"id="exampleModal{{ $document->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">

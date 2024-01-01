@@ -16,21 +16,18 @@ use App\Models\Reviewer;
 class ReviewerController extends Controller
 {
  
-    public function StoreReviewer(Request $request,  Document $document) {
+    public function StoreReviewer(Request $request,Document $document) 
+    {
+        $document_id =  $document->id;
+        $data = Document::find($document_id);
+    
+        $data->reviewer1_id = $request->reviewer1;
+        $data->reviewer2_id = $request->reviewer2;
+        $data->reviewer3_id = $request->reviewer3;
+        $data->save();
 
-        //$document->reviewer1_id = $request->reviewer1;
-        //$document->reviewer2_id = $request->reviewer2;
-        //$document->reviewer3_id = $request->reviewer3;
-        //$document->save();
-        $document->update(['reviewer1_id' => $request->reviewer1]);
-        $document->update(['reviewer2_id' => $request->reviewer2]);
-        $document->update(['reviewer3_id' => $request->reviewer3]);
-
-        $document->save();
-
-        return redirect()->back();
-
-    } //End Method
+        return redirect()->back();  
+    }
 
     public function showReviewPage(Request $request,  Document $document)
     {

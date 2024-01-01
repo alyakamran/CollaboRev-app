@@ -22,9 +22,7 @@
                 </a>
             </div>
 
-            <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
-                <i class="ri-menu-2-line align-middle"></i>
-            </button>
+            
     
         </div>
 
@@ -44,7 +42,7 @@
             @endphp
             <div class="dropdown d-inline-block user-dropdown">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{ (!empty($adminData->profile_picture))? url('upload/admin_images/'.$adminData->profile_picture): url('upload/no_image.jpg') }}" alt="Header Avatar">
+                    <img class="rounded-circle header-profile-user" src="{{ (!empty($adminData->profile_picture))? url('upload/admin_images/'.$adminData->profile_picture): url('upload/user.png') }}" alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1">{{$adminData->name}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
@@ -55,9 +53,6 @@
                     <a class="dropdown-item text-danger" href="{{route('admin.logout')}}"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
                 </div>
             </div>
-
-           
-
         </div>
     </div>
 </header>

@@ -31,7 +31,8 @@ class DocumentController extends Controller
      
          $document = new Document([
              'docname' => $request->docname,
-             'review_leader_id' => $reviewLeaderId, // Use the ID instead of the name
+             'review_leader_id' => $reviewLeaderId,
+             'status' => 'Unvalidated',
          ]);
          
          $user = Auth::user()->id;
