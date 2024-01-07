@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('requirements', function (Blueprint $table) {
+        Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->string('tag');
-            $table->string('type');
-            $table->string('module');
-            $table->string('description');
+            $table->string('question');
+            $table->string('comply')->nullable();
+            $table->string('feedback')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('document_id');
             $table->timestamps();
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('requirements');
+        Schema::dropIfExists('feedback');
     }
 };
